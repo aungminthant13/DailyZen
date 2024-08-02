@@ -25,8 +25,8 @@
                     </div>
 
                     <!-- Form box -->
-                    <div class="col-md-8 d-flex justify-content-center align-items-center">
-                        <form method="POST" class="col-md-10 p-2">
+                    <div class="col-md-6 d-flex justify-content-end align-items-center">
+                        <form method="POST" action="../api/loginvalidate.php" class="col-md-10 p-2">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email">
@@ -34,91 +34,45 @@
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password1" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                             </div>
 
                             <div class="d-flex justify-content-center mt-4">
-                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                                <button type="submit" id="login" class="btn btn-primary w-100">Login</button>
                             </div>
 
                             <div class="d-flex justify-content-center mt-2">
                                 <p> Don't have an account? <a class="link-opacity-100-hover" href="#">Register Here</a></p>
                             </div>
-                        </form>
+                        </form> 
                     </div>
                 </div>
+
+                <div id="result"></div>
             </div>
         </main>
         <footer>
             <!-- place footer here -->
         </footer>
 
-        <?php
-            function test_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-            }
+        <!-- jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            require_once '../api/dbinfo.php';
-            $conn = new mysqli($host, $username, $password, $database);
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $emailErr = $passwordErr = "";
-                $email = $password = "";
-
-                // Validate email
-                if (empty($_POST["email"])) {
-                    $emailErr = "Email is required";
-                } else {
-                    $email = test_input($_POST["email"]);
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $emailErr = "Invalid email format";
-                    }
-                }
-
-                // Validate password
-                if (empty($_POST["password"])) {
-                    $passwordErr = "Password is required";
-                } else {
-                    $password = test_input($_POST["password"]);
-                    if (strlen($password) < 8) {
-                        $passwordErr = "Password must be at least 8 characters";
-                    }
-                }
-
-                if (empty($emailErr) && empty($passwordErr)) {
-                    $query = "SELECT * FROM dailyzen.users WHERE email = ? AND password = ?";
-                    $stmt = $conn->prepare($query);
-                    $stmt->bind_param("ss", $email, $password);
-
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-
-                    if ($result->num_rows == 0) {
-                        header("Location: home.php");
-                        exit();
-                    } else {
-                        echo "Invalid email or password.";
-                    }
-
-                    $stmt->close();
-                } else {
-                    if (!empty($emailErr)) echo $emailErr;
-                    if (!empty($passwordErr)) echo $passwordErr;
-                }
-            }
-
-            $conn->close();
-        ?>
+        <script>
+            $(document).ready(function(){
+                $('form').on('submit', function(event){
+                    event.preventDefault(); // prevent the default form submission
+                    var email = $('#email').val();
+                    var password = $('#password').val();
+                    $.post('../api/loginvalidate.php', {email: email, password: password}, function(data){
+                        $('#result').html(data);
+                    });
+                });
+            });
+        </script>
 
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     </body>
 </html>
