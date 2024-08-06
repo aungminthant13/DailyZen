@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="d-flex justify-content-center mt-2">
-                                <p> Don't have an account? <a class="link-opacity-100-hover" href="#">Register Here</a></p>
+                                <p> Don't have an account? <a class="link-opacity-100-hover" href="../app/register.php">Register Here</a></p>
                             </div>
                         </form> 
                     </div>
