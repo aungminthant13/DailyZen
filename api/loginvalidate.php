@@ -54,7 +54,7 @@ if (empty($emailErr) && empty($passwordErr)) {
 
     $stmt->execute();
     $stmt->store_result();
-    $row = $stmt->num_rows;
+    $row = $stmt->num_rows;;
 
     if ($row > 0) {
         // Login successful
