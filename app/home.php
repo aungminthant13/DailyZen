@@ -19,11 +19,8 @@
     </head>
 
     <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
         <main class="container-fluid" style="height: 100%;">
-            <p class="fs-1">Add Wellbeing Scores</p>
+            <!-- <p class="fs-1">Add Wellbeing Scores</p>
 
             <div class="row">
                 <p class="fs-3">Happiness</p>
@@ -107,8 +104,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
-
+            </div> -->
 
         </main>
         <footer>

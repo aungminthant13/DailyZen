@@ -18,7 +18,7 @@
             </div>
 
             <div class="container">
-                <div class="row border border-light-subtle rounded-2 p-4 w-100">
+                <div class="row border border-light-subtle rounded-3 p-4 w-100">
                     <!-- Image box -->
                     <div class="col-md-4 d-flex justify-content-center align-items-center">
                         <img src="../img/folklore.jpg" alt="Sample Image" class="img-fluid img-thumbnail">
@@ -83,7 +83,7 @@
                     var email = $('#email').val();
                     var password = $('#password').val();
 
-                    $.post('../api/registervalidate.php', {username: username, first_name: first_name, last_name: last_name, email: email, password: password}, function(data){
+                    $.post('../data/registervalidate.php', {username: username, first_name: first_name, last_name: last_name, email: email, password: password}, function(data){
                         $('#result').html(data);
                     });
                 });
