@@ -14,9 +14,9 @@
 <body>
     <main>
         <!-- Logo at the top -->
-        <div class="container-fluid text-center my-4">
+        <!-- <div class="container-fluid text-center my-4">
             <img src="../img/logo.jpg" alt="DailyZen Logo" class="img-fluid" style="max-height: 100px;">
-        </div>
+        </div> -->
 
         <div class="container">
             <div class="row border border-light-subtle rounded-2 p-4 w-100">

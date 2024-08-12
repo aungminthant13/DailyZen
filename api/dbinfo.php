@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
 $database = 'DailyZen';
-$username = 'root';
-$password = 'AMT1mochi2#';
+$DBusername = 'root';
+$DBpassword = 'AMT1mochi2#';
 ?>

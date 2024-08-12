@@ -1,8 +1,3 @@
-<!-- - get the data from login.php
-- validate it using php
-- connect to database
-- validate with the database -->
-
 <?php
 
 function test_input($data)
@@ -35,39 +30,42 @@ if (empty($password)) {
     $passwordErr = "Password is required";
 } else {
     $password = test_input($password);
-    if (strlen($password) < 8) {
-        $passwordErr = "Password must be at least 8 characters";
-    }
-}
-
-// connecting to database
-require_once '../api/dbinfo.php';
-$conn = new mysqli($host, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
 }
 
 if (empty($emailErr) && empty($passwordErr)) {
-    $query = "SELECT * FROM dailyzen.users WHERE email = ? AND password = ?";
+    // connecting to database
+    require_once '../api/dbinfo.php';
+    $conn = new mysqli($host, $DBusername, $DBpassword, $database);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query = "SELECT password FROM dailyzen.users WHERE email = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ss", $email, $password);
-
+    $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->store_result();
-    $row = $stmt->num_rows;;
+    $stmt->bind_result($hashed_password);
 
-    if ($row > 0) {
-        // Login successful
-        echo "Successfully Logged in!";
+    // Check if the user exists
+    if ($stmt->fetch()) {
+        // Verify the password
+        if (password_verify($password, $hashed_password)) {
+            // Login successful
+            echo "Successfully Logged in!";
+        } else {
+            // Invalid password
+            echo "Invalid Login";
+        }
     } else {
-        // Invalid email or password
+        // Invalid email
         echo "Invalid Login";
     }
+
     $stmt->close();
+    $conn->close();
 } else {
     if (!empty($emailErr)) echo $emailErr;
     if (!empty($passwordErr)) echo $passwordErr;
 }
 
-$conn->close();
 ?>

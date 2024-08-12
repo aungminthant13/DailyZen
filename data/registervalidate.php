@@ -9,20 +9,22 @@ function test_input($data)
 }
 
 // getting data
-$form_username = htmlspecialchars($_POST['username']);
+$email = htmlspecialchars($_POST['email']);
 $first_name = htmlspecialchars($_POST['first_name']);
 $last_name = htmlspecialchars($_POST['last_name']);
-$email = htmlspecialchars($_POST['email']);
 $password = htmlspecialchars($_POST['password']);
 
 // error checking
-$usernameErr = $first_nameErr = $last_nameErr = $emailErr = $passwordErr = "";
+$first_nameErr = $last_nameErr = $emailErr = $passwordErr = "";
 
-// Validate username
-if (empty($form_username)) {
-    $usernameErr = "Username is required";
+// Validate email
+if (empty($email)) {
+    $emailErr = "Email is required";
 } else {
-    $form_username = test_input($form_username);
+    $email = test_input($email);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
+    }
 }
 
 // Validate first name
@@ -39,16 +41,6 @@ if (empty($last_name)) {
     $last_name = test_input($last_name);
 }
 
-// Validate email
-if (empty($email)) {
-    $emailErr = "Email is required";
-} else {
-    $email = test_input($email);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
-    }
-}
-
 // Validate password
 if (empty($password)) {
     $passwordErr = "Password is required";
@@ -61,30 +53,33 @@ if (empty($password)) {
 
 // connecting to database
 require_once '../api/dbinfo.php';
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($host, $DBusername, $DBpassword, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check for unique username
-$usernameCheckErr = "";
-if (empty($usernameErr)) {
-    $query = "SELECT * FROM dailyzen.users WHERE username = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $form_username);
+// Check if email already exists
+if (empty($emailErr)) {
+    $check_query = "SELECT email FROM dailyzen.users WHERE email = ?";
+    $check_stmt = $conn->prepare($check_query);
+    $check_stmt->bind_param("s", $email);
+    $check_stmt->execute();
+    $check_stmt->store_result();
 
-    $stmt->execute();
-    $stmt->store_result();
-    if ($stmt->num_rows > 0) {
-        $usernameCheckErr = "Username already taken";
+    if ($check_stmt->num_rows > 0) {
+        $emailErr = "Email already exists. Please use a different email.";
     }
-    $stmt->close();
+    $check_stmt->close();
 }
 
-if (empty($usernameErr) && empty($first_nameErr) && empty($last_nameErr) && empty($emailErr) && empty($passwordErr) && empty($usernameCheckErr)) {
-    $query = "INSERT INTO dailyzen.users (username, first_name, last_name, email, password) VALUES (?, ?, ?, ?, ?)";
+if (empty($first_nameErr) && empty($last_nameErr) && empty($emailErr) && empty($passwordErr) && empty($emailExistsErr)) {
+    // hash password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // insert data to database
+    $query = "INSERT INTO dailyzen.users (email, first_name, last_name, password) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("sssss", $form_username, $first_name, $last_name, $email, $password);
+    $stmt->bind_param("ssss", $email, $first_name, $last_name, $password);
 
     if ($stmt->execute()) {
         echo "Registration successful!";
@@ -93,12 +88,11 @@ if (empty($usernameErr) && empty($first_nameErr) && empty($last_nameErr) && empt
     }
     $stmt->close();
 } else {
-    if (!empty($usernameErr)) echo $usernameErr;
+    if (!empty($emailErr)) echo $emailErr;
     if (!empty($first_nameErr)) echo $first_nameErr;
     if (!empty($last_nameErr)) echo $last_nameErr;
-    if (!empty($emailErr)) echo $emailErr;
     if (!empty($passwordErr)) echo $passwordErr;
-    if (!empty($usernameCheckErr)) echo $usernameCheckErr;
+    if (!empty($emailExistsErr)) echo $emailExistsErr;
 }
 
 $conn->close();
