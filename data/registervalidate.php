@@ -88,11 +88,18 @@ if (empty($first_nameErr) && empty($last_nameErr) && empty($emailErr) && empty($
     }
     $stmt->close();
 } else {
-    if (!empty($emailErr)) echo $emailErr;
-    if (!empty($first_nameErr)) echo $first_nameErr;
-    if (!empty($last_nameErr)) echo $last_nameErr;
-    if (!empty($passwordErr)) echo $passwordErr;
-    if (!empty($emailExistsErr)) echo $emailExistsErr;
+    if (!empty($emailErr)) {
+        echo $emailErr . "<br>";
+    } elseif (!empty($first_nameErr)) {
+        echo $first_nameErr . "<br>";
+    } elseif (!empty($last_nameErr)) {
+        echo $last_nameErr . "<br>";
+    } elseif (!empty($passwordErr)) {
+        echo $passwordErr . "<br>";
+    } elseif (!empty($emailExistsErr)) {
+        echo $emailExistsErr . "<br>";
+    }
+    
 }
 
 $conn->close();

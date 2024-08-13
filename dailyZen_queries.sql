@@ -1,13 +1,13 @@
 CREATE DATABASE DailyZen;
 use DailyZen;
+DROP DATABASE DailyZen;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+	email VARCHAR(100) NOT NULL UNIQUE,
     first_name VARCHAR(50),
-    last_name VARCHAR(50)
+    last_name VARCHAR(50),
+    password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE user_daily_scores (
@@ -20,6 +20,12 @@ CREATE TABLE user_daily_scores (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+drop table users;
+drop table user_daily_scores;
+
 SELECT * FROM users;
+SELECT * FROM user_daily_scores;
+
+
 
 

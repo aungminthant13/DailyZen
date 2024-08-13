@@ -51,7 +51,7 @@ if (empty($emailErr) && empty($passwordErr)) {
         // Verify the password
         if (password_verify($password, $hashed_password)) {
             // Login successful
-            echo "Successfully Logged in!";
+            echo "Successfully Logged in!" . "<br>";
         } else {
             // Invalid password
             echo "Invalid Login";
@@ -64,8 +64,10 @@ if (empty($emailErr) && empty($passwordErr)) {
     $stmt->close();
     $conn->close();
 } else {
-    if (!empty($emailErr)) echo $emailErr;
-    if (!empty($passwordErr)) echo $passwordErr;
-}
-
+    if (!empty($emailErr)) {
+        echo $emailErr . "<br>";
+    } elseif (!empty($passwordErr)) {
+        echo $passwordErr . "<br>";
+    }
+}    
 ?>
