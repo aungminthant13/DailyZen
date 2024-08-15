@@ -14,6 +14,7 @@
 </head>
 
 <body class="body">
+<a href="../app/home.php">Home</a> <a href="../app/login.php">Login</a> <a href="../app/register.php">Register</a>
     <main class="container">
         <div class="main">
             <div class="formbox col-12 col-lg-5">
