@@ -25,10 +25,17 @@
         crossorigin="anonymous" />
 </head>
 
-<body class="home-body">
+<body class="">
     <!-- <a href="../app/home.php">Home</a> <a href="../app/login.php">Login</a> <a href="../app/register.php">Register</a> -->
-    <main>
-        <div class="container">
+    <main style="width: 100%;">
+        <div class="navbar">
+
+        </div>
+        <div class="">
+            <div class="block greeting-block">
+
+            </div>
+
             <p>
             <h1>Hello, Taylor!</h1>
             </p>
@@ -42,99 +49,16 @@
             </div>
 
             <div class="block">
-                <p class="fs-1">Add Wellbeing Scores</p>
-
-                <div class="row">
-                    <p class="fs-3">Happiness</p>
-                    <div class="">
-                        <form>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">2</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">3</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">4</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">5</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <p class="fs-3">Workload Management</p>
-                    <div class="">
-                        <form>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">2</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">3</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">4</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">5</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <p class="fs-3">Anxiety Level</p>
-                    <div class="">
-                        <form>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">1</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">2</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">3</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">4</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label" for="">5</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <h2>Quote of the Day</h2>
+                <blockquote>
+                    <p>Everything you lose is a step you take</p>
+                    <p>Taylor Allison Swift</p>
+                </blockquote>
             </div>
-            <br>
-            <br>
-            <br>
+
+            
 
         </div>
-
-
     </main>
     <footer>
         <!-- place footer here -->

@@ -74,46 +74,44 @@
 
 /* CSS for home page */
 
-html, body {
-    height: 100%; /* Make sure the html and body are full height */
-    margin: 0;
+.container-fluid {
     padding: 0;
+    margin: 0;
 }
 
-.home-body {
-    background-color: #d6e9eb;
-    background-image: linear-gradient(to bottom right, rgb(163, 163, 255), rgb(205, 237, 168), rgb(248, 241, 159));
-    min-height: 100%;
-    background-size: auto 100%; /* Scale the gradient to the height of the content */
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Fix the background to prevent it from scrolling */
+.navbar {
+    background-color: #206194;
+    height: 50px;
+    width: 100%;
+    margin: 0;
 }
-
-
 
 .block {
-    background-color: #ffffff;
-    /* border-width: 1px;
-    border-color: #464343;
-    border-style: solid; */
-    border-radius: 5px;
+    background-color: #ededed;
+    width: 100%;
+    padding: 20px; /* Adjust as needed */
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
-    padding: 40px;
-    margin-top: 20px;
-
-    text-align: center;
-    align-items: center;
-    align-content: center;
-
-    /* background-color: #ffffff; */
-    /* border-radius: 8px; */
-    box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
-    /* padding: 40px;
-    text-align: center; */
-
-    margin-left: auto;
-    margin-right: auto;
+    
+    /* Flexbox properties */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the text content */
 }
+
+.greeting-block{
+    background-color: #313030;
+    height: 400px;
+}
+
+
+
+
+
 
 
 
