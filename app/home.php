@@ -25,39 +25,26 @@
         crossorigin="anonymous" />
 </head>
 
-<body class="">
-    <!-- <a href="../app/home.php">Home</a> <a href="../app/login.php">Login</a> <a href="../app/register.php">Register</a> -->
+<body class="home-main">
     <main style="width: 100%;">
-        <div class="navbar">
-
-        </div>
-        <div class="">
-            <div class="block greeting-block">
-
+        <div class="navbar"></div>
+        <div class="container-fluid custom-container">
+            <div class="row block">
+                <div class="col-8">
+                    <h1>Hello, Taylor!</h1>
+                </div>
+                <div class="col-4">
+                    <h1>Hello, Lana!</h1>
+                </div>
             </div>
 
-            <p>
-            <h1>Hello, Taylor!</h1>
-            </p>
-
-            <div class="block">
+            <div class="row block">
                 <h2>Quote of the Day</h2>
                 <blockquote>
                     <p>Everything you lose is a step you take</p>
                     <p>Taylor Allison Swift</p>
                 </blockquote>
             </div>
-
-            <div class="block">
-                <h2>Quote of the Day</h2>
-                <blockquote>
-                    <p>Everything you lose is a step you take</p>
-                    <p>Taylor Allison Swift</p>
-                </blockquote>
-            </div>
-
-            
-
         </div>
     </main>
     <footer>

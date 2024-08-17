@@ -73,10 +73,13 @@
 }
 
 /* CSS for home page */
+.home-main {
+    background-color: #bec8cf;
+}
 
-.container-fluid {
-    padding: 0;
-    margin: 0;
+.custom-container {
+    max-width: 1000px; /* Set the maximum width */
+    width: 60%; /* Adjust the width as needed */
 }
 
 .navbar {
@@ -84,36 +87,17 @@
     height: 50px;
     width: 100%;
     margin: 0;
+    margin-bottom: 15px;
 }
 
-.block {
+.row.block {
+    display: flex; /* Ensure the row behaves as a flex container */
+    justify-content: space-between; /* Space out the blocks */
+    align-items: stretch; /* Stretch the blocks to match height */
     background-color: #ededed;
-    width: 100%;
-    padding: 20px; /* Adjust as needed */
-    box-sizing: border-box;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    
-    /* Flexbox properties */
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    text-align: center; /* Center the text content */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
 }
-
-.greeting-block{
-    background-color: #313030;
-    height: 400px;
-}
-
-
-
-
-
-
-
-
-
 
