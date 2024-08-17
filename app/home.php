@@ -30,119 +30,110 @@
     <main>
         <div class="container">
             <p>
-                <h1>Hello, Taylor!</h1>
+            <h1>Hello, Taylor!</h1>
             </p>
 
             <div class="block">
                 <h2>Quote of the Day</h2>
-                    <blockquote>
-                        <p>quote text goes here</p>
-                        <p>author name goes here</p>
-                    </blockquote>
+                <blockquote>
+                    <p>Everything you lose is a step you take</p>
+                    <p>Taylor Allison Swift</p>
+                </blockquote>
             </div>
 
             <div class="block">
-                <h2>Quote of the Day</h2>
-                    <blockquote>
-                        <p>quote text goes here</p>
-                        <p>author name goes here</p>
-                    </blockquote>
-            </div>
+                <p class="fs-1">Add Wellbeing Scores</p>
 
-            <div class="block">
-                <h2>Quote of the Day</h2>
-                    <blockquote>
-                        <p>quote text goes here</p>
-                        <p>author name goes here</p>
-                    </blockquote>
+                <div class="row">
+                    <p class="fs-3">Happiness</p>
+                    <div class="">
+                        <form>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">5</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="fs-3">Workload Management</p>
+                    <div class="">
+                        <form>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">5</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="fs-3">Anxiety Level</p>
+                    <div class="">
+                        <form>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">2</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">3</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">4</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="">5</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
+            <br>
+            <br>
+            <br>
 
         </div>
-        <!-- <p class="fs-1">Add Wellbeing Scores</p>
 
-            <div class="row">
-                <p class="fs-3">Happiness</p>
-                <div class="">
-                    <form>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">1</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">3</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">4</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">5</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="row">
-                <p class="fs-3">Workload Management</p>
-                <div class="">
-                    <form>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">1</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">3</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">4</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">5</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="row">
-                <p class="fs-3">Anxiety Level</p>
-                <div class="">
-                    <form>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">1</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">3</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">4</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="">5</label>
-                        </div>
-                    </form>
-                </div>
-            </div> -->
 
     </main>
     <footer>

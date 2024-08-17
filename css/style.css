@@ -93,9 +93,9 @@ html, body {
 
 .block {
     background-color: #ffffff;
-    border-width: 1px;
+    /* border-width: 1px;
     border-color: #464343;
-    border-style: solid;
+    border-style: solid; */
     border-radius: 5px;
 
     padding: 40px;
