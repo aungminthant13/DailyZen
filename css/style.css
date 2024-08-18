@@ -75,11 +75,12 @@
 /* CSS for home page */
 .home-main {
     background-color: #bec8cf;
+    font-family: "Nunito", sans-serif;
 }
 
 .custom-container {
-    max-width: 1000px; /* Set the maximum width */
-    width: 60%; /* Adjust the width as needed */
+    max-width: 800px; /* Set the maximum width */
+    width: 50%; /* Adjust the width as needed */
 }
 
 .navbar {
@@ -100,4 +101,13 @@
     border-radius: 5px;
     box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
 }
+
+.heading {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    /* border: 2px solid; */
+    text-align: center;
+}
+
 

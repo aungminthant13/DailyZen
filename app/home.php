@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/quote.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link
@@ -39,12 +40,19 @@
             </div>
 
             <div class="row block">
-                <h2>Quote of the Day</h2>
-                <blockquote>
-                    <p>Everything you lose is a step you take</p>
-                    <p>Taylor Allison Swift</p>
-                </blockquote>
+                <h2 class="heading">Quote of the Day</h2>
+
+                <div class="row justify-content-center">
+                    <div>
+                        <blockquote>
+                            <p>Everything you lose is a step you take</p>
+                            <p>Taylor Allison Swift</p>
+                        </blockquote>
+                    </div>
+
+                </div>
             </div>
+
         </div>
     </main>
     <footer>
