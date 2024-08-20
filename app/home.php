@@ -86,49 +86,124 @@
             </div>
 
             <div class="row block">
-                <div class="row heading"><h2>Add Today's Ratings</h2></div>
+                <div class="row heading">
+                    <h2>Add Today's Ratings</h2>
+                </div>
+                <div>
+                    <form>
+                        <div class="score-input">
+                            <span class="score-label heading">Happiness</span>
+                            <div class="score-options">
+                                <input type="radio" id="happiness-1" name="happiness" value="1">
+                                <label for="happiness-1" data-value="1"></label>
 
+                                <input type="radio" id="happiness-2" name="happiness" value="2">
+                                <label for="happiness-2" data-value="2"></label>
+
+                                <input type="radio" id="happiness-3" name="happiness" value="3">
+                                <label for="happiness-3" data-value="3"></label>
+
+                                <input type="radio" id="happiness-4" name="happiness" value="4">
+                                <label for="happiness-4" data-value="4"></label>
+
+                                <input type="radio" id="happiness-5" name="happiness" value="5">
+                                <label for="happiness-5" data-value="5"></label>
+                            </div>
+                        </div>
+
+                        <div class="score-input">
+                            <span class="score-label heading">Workload</span>
+                            <div class="score-options">
+                                <input type="radio" id="workload-1" name="workload" value="1">
+                                <label for="workload-1" data-value="1"></label>
+
+                                <input type="radio" id="workload-2" name="workload" value="2">
+                                <label for="workload-2" data-value="2"></label>
+
+                                <input type="radio" id="workload-3" name="workload" value="3">
+                                <label for="workload-3" data-value="3"></label>
+
+                                <input type="radio" id="workload-4" name="workload" value="4">
+                                <label for="workload-4" data-value="4"></label>
+
+                                <input type="radio" id="workload-5" name="workload" value="5">
+                                <label for="workload-5" data-value="5"></label>
+                            </div>
+                        </div>
+
+                        <div class="score-input">
+                            <span class="score-label heading">Anxiety</span>
+                            <div class="score-options">
+                                <input type="radio" id="anxiety-1" name="anxiety" value="1">
+                                <label for="anxiety-1" data-value="1"></label>
+
+                                <input type="radio" id="anxiety-2" name="anxiety" value="2">
+                                <label for="anxiety-2" data-value="2"></label>
+
+                                <input type="radio" id="anxiety-3" name="anxiety" value="3">
+                                <label for="anxiety-3" data-value="3"></label>
+
+                                <input type="radio" id="anxiety-4" name="anxiety" value="4">
+                                <label for="anxiety-4" data-value="4"></label>
+
+                                <input type="radio" id="anxiety-5" name="anxiety" value="5">
+                                <label for="anxiety-5" data-value="5"></label>
+                            </div>
+                        </div>
+
+                        <div class="rating-btns">
+                            <button type="submit" id="cancel-rating" class="">Cancel</button>
+                            <button type="submit" id="add-rating" class="">Add Ratings</button>
+                        </div>
+                    </form>
+
+
+                </div>
             </div>
         </div>
-    </main>
+        </div>
 
-    <!-- jQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
 
-    <!-- Custom Script -->
-    <script>
-        $(document).ready(function() {
-            // Show overlay when button is pressed
-            $('#home-quote-search-btn').on('click', function() {
-                $('.overlay').css('display', 'flex');
-            });
+</main>
 
-            // Close overlay when clicking outside of it
-            $(document).on('click', function(e) {
-                if (!$(e.target).closest('.overlay-content, #home-quote-search-btn').length) {
-                    $('#overlay').hide();
-                }
-            });
+<!-- jQuery Library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            // Prevent closing overlay when clicking inside the overlay content
-            $('.overlay-content').on('click', function(e) {
-                e.stopPropagation();
-            });
+<!-- Custom Script -->
+<script>
+    $(document).ready(function() {
+        // Show overlay when button is pressed
+        $('#home-quote-search-btn').on('click', function() {
+            $('.overlay').css('display', 'flex');
         });
-    </script>
 
-    <footer>
-        <!-- place footer here -->
-    </footer>
+        // Close overlay when clicking outside of it
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.overlay-content, #home-quote-search-btn').length) {
+                $('#overlay').hide();
+            }
+        });
 
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+        // Prevent closing overlay when clicking inside the overlay content
+        $('.overlay-content').on('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+<footer>
+    <!-- place footer here -->
+</footer>
+
+<!-- Bootstrap JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

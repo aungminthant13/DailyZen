@@ -1,69 +1,163 @@
 /* CSS for home page */
 .home-main {
-    background-color: #d5dade;
-    font-family: "Nunito", sans-serif;
+  background-color: #d5dade;
+  font-family: "Nunito", sans-serif;
 }
 
 .custom-container {
-    max-width: 800px; /* Set the maximum width */
-    width: 50%; /* Adjust the width as needed */
+  max-width: 800px; /* Set the maximum width */
+  width: 50%; /* Adjust the width as needed */
 }
 
 .navbar {
-    background-color: #206194;
-    height: 50px;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 15px;
+  background-color: #206194;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 15px;
 }
 
 .row.block {
-    display: flex; /* Ensure the row behaves as a flex container */
-    justify-content: space-between; /* Space out the blocks */
-    align-items: stretch; /* Stretch the blocks to match height */
-    background-color: #ffffff;
-    padding: 20px;
-    margin-top: 15px;
-    border-radius: 5px;
-    box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
+  display: flex; /* Ensure the row behaves as a flex container */
+  justify-content: space-between; /* Space out the blocks */
+  align-items: stretch; /* Stretch the blocks to match height */
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
 }
 
 .heading {
-    font-family: "DM Serif Text", serif;
-    width: 100%;
-    font-weight: 400;
-    font-style: normal;
-    /* border: 2px solid; */
-    text-align: center;
-    padding: 5px;
+  font-family: "DM Serif Text", serif;
+  width: 100%;
+  font-weight: 400;
+  font-style: normal;
+  /* border: 2px solid; */
+  text-align: center;
+  padding: 5px;
 }
 
 /* --------------- */
 .btn-icon {
-    border: none;
-    background: none;
-    padding: 0;
-    font-size: 30px; /* icon size */
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 30px; /* icon size */
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-icon:hover {
-    background-color: #0000003f; /* Black with 65% opacity */
-    border-radius: 50%; /* Makes the background circular */
+  background-color: #0000003f; /* Black with 65% opacity */
+  border-radius: 50%; /* Makes the background circular */
 }
 
-
 #home-quote-search-btn {
-    border: none;
-    background-color: transparent;
-    font-size: 25px; /* Adjust the icon size */
-    cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 25px; /* Adjust the icon size */
+  cursor: pointer;
 }
 
 /* ----------------- */
 
+.score-input {
+  margin: 20px 0;
+}
+
+.score-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.score-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-options input[type="radio"] {
+  display: none;
+}
+
+.score-options label {
+  border: 2px solid #42d180;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* .score-options label:hover {
+  transform: scale(1.2);
+} */
+
+/* .score-options label:before {
+  content: attr(data-value);
+  display: block;
+  text-align: center;
+  color: #8a2be2;
+  font-weight: bold;
+} */
+
+.score-options label[data-value="1"] {
+  width: 20px;
+  height: 20px;
+}
+
+.score-options label[data-value="2"] {
+  width: 30px;
+  height: 30px;
+}
+
+.score-options label[data-value="3"] {
+  width: 40px;
+  height: 40px;
+}
+
+.score-options label[data-value="4"] {
+  width: 50px;
+  height: 50px;
+}
+
+.score-options label[data-value="5"] {
+  width: 60px;
+  height: 60px;
+}
+
+.score-options input[type="radio"]:checked + label {
+  background-color: #42d180;
+  color: white;
+  border-color: #8a2be2;
+}
+
+.rating-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the buttons */
+    margin-top: 20px; /* Add some space above the buttons */
+}
+
+.rating-btns button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3e81ec;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.rating-btns button:hover {
+    background-color: #366fcc;
+}
