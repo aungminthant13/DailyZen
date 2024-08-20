@@ -1,80 +1,6 @@
-/* Body styles */
-.body {
-    background-color: #d4f0fb;
-    background-image: linear-gradient(to bottom right, rgb(163, 163, 255), rgb(205, 237, 168), rgb(248, 241, 159));
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Main container */
-.main {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-/* Form container */
-.formbox {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    text-align: center;
-}
-
-/* Form elements */
-.form-label {
-    text-align: left;
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 16px;
-    border-bottom-style: solid;
-    font-size: 16px;
-}
-
-.btn-primary {
-    width: 100%;
-    background-color: #0078d4;
-    border-color: #0078d4;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px;
-    color: white;
-    border-radius: 4px;
-}
-
-.btn-primary:hover {
-    background-color: #005a9e;
-    border-color: #005a9e;
-}
-
-.link-opacity-100-hover {
-    color: #0078d4;
-    text-decoration: none;
-}
-
-.link-opacity-100-hover:hover {
-    text-decoration: underline;
-}
-
-#result {
-    color: rgb(254, 53, 53);
-}
-
 /* CSS for home page */
 .home-main {
-    background-color: #bec8cf;
+    background-color: #d5dade;
     font-family: "Nunito", sans-serif;
 }
 
@@ -95,19 +21,49 @@
     display: flex; /* Ensure the row behaves as a flex container */
     justify-content: space-between; /* Space out the blocks */
     align-items: stretch; /* Stretch the blocks to match height */
-    background-color: #ededed;
+    background-color: #ffffff;
     padding: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
     border-radius: 5px;
     box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
 }
 
 .heading {
     font-family: "DM Serif Text", serif;
+    width: 100%;
     font-weight: 400;
     font-style: normal;
     /* border: 2px solid; */
     text-align: center;
+    padding: 5px;
 }
 
+/* --------------- */
+.btn-icon {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 30px; /* icon size */
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon:hover {
+    background-color: #0000003f; /* Black with 65% opacity */
+    border-radius: 50%; /* Makes the background circular */
+}
+
+
+#home-quote-search-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 25px; /* Adjust the icon size */
+    cursor: pointer;
+}
+
+/* ----------------- */
 
