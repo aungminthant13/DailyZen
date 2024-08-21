@@ -161,3 +161,11 @@
 .rating-btns button:hover {
     background-color: #366fcc;
 }
+
+#curve_chart {
+  width: 100%; /* Adjust to 100% of the container width */
+  max-width: 1800px; /* Set a max width to limit its expansion */
+  height: 500px; /* Maintain the height */
+  margin: 0 auto; /* Center the chart horizontally */
+}
+

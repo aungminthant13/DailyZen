@@ -25,6 +25,36 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Date', 'Happiness', 'Workload Management', 'Anxiety Management'],
+                ['2024.08.15', 5, 4, 5],
+                ['2024.08.16', 3, 1, 2],
+                ['2024.08.17', 4, 4, 4],
+                ['2024.08.18', 3, 4, 5],
+                ['2024.08.19', 3, 3, 4]
+            ]);
+
+            var options = {
+                title: 'Company Performance',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 
 <body class="home-main">
@@ -90,7 +120,7 @@
                     <h2>Add Today's Ratings</h2>
                 </div>
                 <div>
-                    <form>
+                    <form method="post">
                         <div class="score-input">
                             <span class="score-label heading">Happiness</span>
                             <div class="score-options">
@@ -156,9 +186,11 @@
                             <button type="submit" id="add-rating" class="">Add Ratings</button>
                         </div>
                     </form>
-
-
                 </div>
+            </div>
+
+            <div class="row block">
+                <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div>
             </div>
         </div>
         </div>
