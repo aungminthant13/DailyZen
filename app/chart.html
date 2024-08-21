@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Charts with JSON Data</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Load the Visualization API and the corechart package.
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Fetch JSON data and process it
+            fetch('../api/readScores.php')  // Replace with your JSON data URL
+                .then(response => response.json())
+                .then(data => {
+                    // Convert JSON data to a DataTable
+                    const dataTable = new google.visualization.DataTable();
+                    dataTable.addColumn('string', 'date');
+                    dataTable.addColumn('number', 'happiness');
+                    dataTable.addColumn('number', 'workload');
+                    dataTable.addColumn('number', 'anxiety');
+
+                    // Add rows from JSON data
+                    data.forEach(item => {
+                        dataTable.addRow([item.score_date, item.happiness_score, item.workload_score,item.anxiety_score]);
+                    });
+
+                    // Set chart options
+                    const options = {
+                        title: 'My Chart Title',
+                        width: 600,
+                        height: 400
+                    };
+
+                    // Instantiate and draw the chart.
+                    const chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                    chart.draw(dataTable, options);
+                })
+                .catch(error => console.error('Error fetching the JSON data:', error));
+        }
+    </script>
+</head>
+<body>
+    <div id="chart_div" style="width: 100%; height: 500px; margin:0;"></div>
+</body>
+</html>
