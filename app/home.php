@@ -36,7 +36,7 @@
             var data = google.visualization.arrayToDataTable([
                 ['Date', 'Happiness', 'Workload Management', 'Anxiety Management'],
                 ['2024.08.15', 5, 4, 5],
-                ['2024.08.16', 3, 1, 2],
+                ['2024.08.16', 3, 3, 2],
                 ['2024.08.17', 4, 4, 4],
                 ['2024.08.18', 3, 4, 5],
                 ['2024.08.19', 3, 3, 4]
@@ -83,7 +83,7 @@
 
                 <div class="row">
                     <div class="col-2 d-flex align-items-center justify-content-center">
-                        <button class="btn-icon" id="previous-quote">
+                        <button class="btn-icon" id="previous-quote-btn">
                             <i class="bi bi-caret-left-fill"></i>
                         </button>
                     </div>
@@ -91,14 +91,14 @@
                     <div class="col-8">
                         <div class="">
                             <blockquote>
-                                <p>Everything you lose is a step you take</p>
-                                <p>Taylor Allison Swift</p>
+                                <p></p>
+                                <p></p>
                             </blockquote>
                         </div>
                     </div>
 
                     <div class="col-2 d-flex align-items-center justify-content-center">
-                        <button class="btn-icon" id="next-quote">
+                        <button class="btn-icon" id="next-quote-btn">
                             <i class="bi bi-caret-right-fill"></i>
                         </button>
                     </div>
@@ -120,7 +120,7 @@
                     <h2>Add Today's Ratings</h2>
                 </div>
                 <div>
-                    <form method="post">
+                    <form>
                         <div class="score-input">
                             <span class="score-label heading">Happiness</span>
                             <div class="score-options">
@@ -223,6 +223,7 @@
         });
     });
 </script>
+<script src="../js/quote-fetch.js"></script>
 
 <footer>
     <!-- place footer here -->
