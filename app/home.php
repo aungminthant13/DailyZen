@@ -24,6 +24,9 @@
         crossorigin="anonymous" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../js/homepage-chart.js"></script>
 </head>
 
 <body class="home-main">
@@ -183,6 +186,7 @@
 
             <div class="row block">
                 <!-- <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div> -->
+                <div id="chart_div" style="width: 100%; height: 70%; margin:0;"></div>
             </div>
         </div>
         </div>
