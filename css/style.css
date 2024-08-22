@@ -64,6 +64,11 @@
   cursor: pointer;
 }
 
+#home-quote-search-btn:hover {
+  background-color: #0000003f; /* Black with 65% opacity */
+  border-radius: 50%; /* Makes the background circular */
+}
+
 /* ----------------- */
 
 .score-input {

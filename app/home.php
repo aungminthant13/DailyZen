@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="../css/overlay.css">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap');
+    </style>
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -24,37 +24,6 @@
         crossorigin="anonymous" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Date', 'Happiness', 'Workload Management', 'Anxiety Management'],
-                ['2024.08.15', 5, 4, 5],
-                ['2024.08.16', 3, 3, 2],
-                ['2024.08.17', 4, 4, 4],
-                ['2024.08.18', 3, 4, 5],
-                ['2024.08.19', 3, 3, 4]
-            ]);
-
-            var options = {
-                title: 'Company Performance',
-                curveType: 'function',
-                legend: {
-                    position: 'bottom'
-                }
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-            chart.draw(data, options);
-        }
-    </script>
 </head>
 
 <body class="home-main">
@@ -63,7 +32,28 @@
         <div class="container-fluid custom-container">
             <div class="row block">
                 <div class="col-12">
-                    <h2>Good Morning, Taylor!</h2>
+                    <?php
+                    // Get the current hour
+                    date_default_timezone_set('Asia/Bangkok');
+                    $currentHour = date('H');
+
+                    // Determine the appropriate greeting
+                    if ($currentHour >= 5 && $currentHour < 12) {
+                        $greeting = "Good Morning";
+                    } elseif ($currentHour >= 12 && $currentHour < 18) {
+                        $greeting = "Good Afternoon";
+                    } elseif ($currentHour >= 18 && $currentHour < 22) {
+                        $greeting = "Good Evening";
+                    } else {
+                        $greeting = "Good Night";
+                    }
+
+                    // Display the greeting with the user's name
+                    $name = "Taylor"; // Replace this with the actual user's name if available
+                    echo "<div class='col-12'>";
+                    echo "<h2>$greeting, $name!</h2>";
+                    echo "</div>";
+                    ?>
                 </div>
             </div>
 
@@ -107,13 +97,15 @@
 
             <div id="overlay" class="overlay">
                 <div class="overlay-content">
-                    <input type="text" id="overlay-search-bar" placeholder="Search quote or author">
+                    <div style="display: flex; align-items: center;">
+                        <input type="text" id="overlay-search-bar" placeholder="Search quote or author">
+                        <button id="overlay-search-btn"><i class="bi bi-search"></i></button>
+                    </div>
                     <div id="overlay-search-results" class="dropdown-content">
-                        <div id="overlay-search-result-quote"></div>
-                        <div id="overlay-search-result-author"></div>
                     </div>
                 </div>
             </div>
+
 
             <div class="row block">
                 <div class="row heading">
@@ -190,7 +182,7 @@
             </div>
 
             <div class="row block">
-                <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div>
+                <!-- <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div> -->
             </div>
         </div>
         </div>
@@ -203,27 +195,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- Custom Script -->
-<script>
-    $(document).ready(function() {
-        // Show overlay when button is pressed
-        $('#home-quote-search-btn').on('click', function() {
-            $('.overlay').css('display', 'flex');
-        });
-
-        // Close overlay when clicking outside of it
-        $(document).on('click', function(e) {
-            if (!$(e.target).closest('.overlay-content, #home-quote-search-btn').length) {
-                $('#overlay').hide();
-            }
-        });
-
-        // Prevent closing overlay when clicking inside the overlay content
-        $('.overlay-content').on('click', function(e) {
-            e.stopPropagation();
-        });
-    });
-</script>
 <script src="../js/quote-fetch.js"></script>
+<script src="../js/quote-overlay.js"></script>
 
 <footer>
     <!-- place footer here -->

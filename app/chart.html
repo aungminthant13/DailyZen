@@ -28,8 +28,9 @@
                     // Set chart options
                     const options = {
                         title: 'My Chart Title',
-                        width: 600,
-                        height: 400
+                        width: '100%',  // Set width to 100% to make it responsive
+                        height: 400,
+                        chartArea: {width: '90%', height: '80%'}, // Adjust chart area
                     };
 
                     // Instantiate and draw the chart.
@@ -41,6 +42,7 @@
     </script>
 </head>
 <body>
+    <h1 style="text-align: center;">Rating Entries Overtime</h1>
     <div id="chart_div" style="width: 100%; height: 500px; margin:0;"></div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    $.getJSON("../json/quotes.json",function(data){
+    $.getJSON("../data/quotes.json",function(data){
          // $.each(data, function(key, val){
          //     items = val;
          // });
@@ -39,6 +39,6 @@ $(document).ready(function(){
          var quoteOb = items[currentIndex];
          //Replaces the HTML inside the blockquote with actual quote.
          $("p:nth-child(1)").html(quoteOb.quote);
-         $('p:nth-child(2)').html(quoteOb.author);  
+         $('p:nth-child(2)').html("-" + quoteOb.author);  
      }
  });
