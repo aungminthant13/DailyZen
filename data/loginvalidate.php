@@ -38,52 +38,45 @@ if (empty($emailErr) && empty($passwordErr)) {
     $conn = new mysqli($host, $DBusername, $DBpassword, $database);
 
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        echo json_encode(["status" => "error", "message" => "Connection failed: " . $conn->connect_error]);
+        exit();
     }
 
     $query = "SELECT id, first_name, last_name, email, password FROM dailyzen.users WHERE email = ?";
     $stmt = $conn->prepare($query);
 
-    // Check if prepare() failed
     if ($stmt === false) {
-        die("MySQL prepare statement error: " . $conn->error);
+        echo json_encode(["status" => "error", "message" => "MySQL prepare statement error: " . $conn->error]);
+        exit();
     }
 
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->bind_result($userID, $first_name, $last_name, $email, $hashed_password);
 
-    // Check if the user exists
     if ($stmt->fetch()) {
-        // Verify the password
         if (password_verify($password, $hashed_password)) {
-            // Login successful, set session variables
             $_SESSION["userID"] = $userID;
             $_SESSION["fname"] = $first_name;
             $_SESSION["lname"] = $last_name;
             $_SESSION["email"] = $email;
 
-            echo "Successfully Logged in!" . "<br>";
-
-            // Redirect to the home page
-            // header("Location: ../app/home.php");
-            exit(); // Stop further script execution after redirect
+            echo json_encode(["status" => "success", "message" => "Successfully Logged in!"]);
+            exit();
         } else {
-            // Invalid password
-            echo "Invalid Login";
+            echo json_encode(["status" => "error", "message" => "Invalid Login"]);
+            exit();
         }
     } else {
-        // Invalid email
-        echo "Invalid Login";
+        echo json_encode(["status" => "error", "message" => "Invalid Login"]);
+        exit();
     }
 
     $stmt->close();
     $conn->close();
 } else {
-    if (!empty($emailErr)) {
-        echo $emailErr . "<br>";
-    } elseif (!empty($passwordErr)) {
-        echo $passwordErr . "<br>";
-    }
+    $error_message = !empty($emailErr) ? $emailErr : $passwordErr;
+    echo json_encode(["status" => "error", "message" => $error_message]);
+    exit();
 }
 ?>

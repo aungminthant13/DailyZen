@@ -64,8 +64,15 @@
                 $.post('../data/loginvalidate.php', {
                     email: email,
                     password: password
-                }, function(data) {
-                    $('#result').html(data);
+                }, function(response) {
+                    var data = JSON.parse(response);
+                    if (data.status === "success") {
+                        // Redirect to home.php if login is successful
+                        window.location.href = "../app/home.php";
+                    } else {
+                        // Show error message if login failed
+                        $('#result').html(data.message);
+                    }
                 });
             });
         });
