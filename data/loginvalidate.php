@@ -1,7 +1,7 @@
 <?php
+session_start();
 
-function test_input($data)
-{
+function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -36,22 +36,38 @@ if (empty($emailErr) && empty($passwordErr)) {
     // connecting to database
     require_once '../api/dbinfo.php';
     $conn = new mysqli($host, $DBusername, $DBpassword, $database);
+
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $query = "SELECT password FROM dailyzen.users WHERE email = ?";
+    $query = "SELECT id, first_name, last_name, email, password FROM dailyzen.users WHERE email = ?";
     $stmt = $conn->prepare($query);
+
+    // Check if prepare() failed
+    if ($stmt === false) {
+        die("MySQL prepare statement error: " . $conn->error);
+    }
+
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->bind_result($hashed_password);
+    $stmt->bind_result($userID, $first_name, $last_name, $email, $hashed_password);
 
     // Check if the user exists
     if ($stmt->fetch()) {
         // Verify the password
         if (password_verify($password, $hashed_password)) {
-            // Login successful
+            // Login successful, set session variables
+            $_SESSION["userID"] = $userID;
+            $_SESSION["fname"] = $first_name;
+            $_SESSION["lname"] = $last_name;
+            $_SESSION["email"] = $email;
+
             echo "Successfully Logged in!" . "<br>";
+
+            // Redirect to the home page
+            // header("Location: ../app/home.php");
+            exit(); // Stop further script execution after redirect
         } else {
             // Invalid password
             echo "Invalid Login";
@@ -69,5 +85,5 @@ if (empty($emailErr) && empty($passwordErr)) {
     } elseif (!empty($passwordErr)) {
         echo $passwordErr . "<br>";
     }
-}    
+}
 ?>

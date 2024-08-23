@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['userID']))
+  header("Location: ../app/login.php");
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -31,7 +37,7 @@
 
 <body class="home-main">
     <main style="width: 100%;">
-        <div class="navbar"></div>
+        <div class="navbar"><a href="../app/logout.php">Logout</a></div>
         <div class="container-fluid custom-container">
             <div class="row block">
                 <div class="col-12">
@@ -52,7 +58,7 @@
                     }
 
                     // Display the greeting with the user's name
-                    $name = "Taylor"; // Replace this with the actual user's name if available
+                    $name = $_SESSION["fname"]; // Replace this with the actual user's name if available
                     echo "<div class='col-12'>";
                     echo "<h2>$greeting, $name!</h2>";
                     echo "</div>";
@@ -115,7 +121,7 @@
                     <h2>Add Today's Ratings</h2>
                 </div>
                 <div>
-                    <form>
+                    <form method="POST" action="../api/addRatings.php">
                         <div class="score-input">
                             <span class="score-label heading">Happiness</span>
                             <div class="score-options">
@@ -187,6 +193,7 @@
             <div class="row block">
                 <!-- <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div> -->
                 <div id="chart_div" style="width: 100%; height: 70%; margin:0;"></div>
+                <div style="text-align: center;"><a href="../app/chart.html">View all time ratings here</a></div>
             </div>
         </div>
         </div>
@@ -201,6 +208,9 @@
 <!-- Custom Script -->
 <script src="../js/quote-fetch.js"></script>
 <script src="../js/quote-overlay.js"></script>
+<script>
+
+</script>
 
 <footer>
     <!-- place footer here -->
