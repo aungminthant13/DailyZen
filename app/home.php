@@ -40,7 +40,7 @@ if (!isset($_SESSION['userID']))
         <div class="navbar"><a href="../app/logout.php">Logout</a></div>
         <div class="container-fluid custom-container">
             <div class="row block">
-                <div class="col-12">
+                <div class="row">
                     <?php
                     // Get the current hour
                     date_default_timezone_set('Asia/Bangkok');
@@ -58,11 +58,15 @@ if (!isset($_SESSION['userID']))
                     }
 
                     // Display the greeting with the user's name
-                    $name = $_SESSION["fname"]; // Replace this with the actual user's name if available
-                    echo "<div class='col-12'>";
+                    $name = $_SESSION["fname"] . " " . $_SESSION["lname"];
+                    echo "<div class='col-8'>";
                     echo "<h2>$greeting, $name!</h2>";
                     echo "</div>";
                     ?>
+
+                    <div class='col-4' style="text-align:end;">
+                        <?php echo date("d-m-Y (D)") . "<br>" . date("h:i A") . "<br>"; ?>
+                    </div>
                 </div>
             </div>
 
