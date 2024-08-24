@@ -37,9 +37,20 @@ if (!isset($_SESSION['userID']))
 
 <body class="home-main">
     <main style="width: 100%;">
-        <div class="navbar"><a href="../app/logout.php">Logout</a></div>
+        <div id="navbar" class="navbar">
+            <div class="navbar-logo"><h2>DailyZen</h2></div>
+            <div class="navbar-items">
+                <a href="#greeting">Home</a>
+                <a href="#quote">Quote</a>
+                <a href="#ratings">Today's Ratings</a>
+                <a href="#dashboard">dashboard</a>
+            </div>
+            <div class="logout"><a href="../app/logout.php">Logout</a></div>
+
+        </div>
+
         <div class="container-fluid custom-container">
-            <div class="row block">
+            <div id="greeting" class="row block">
                 <div class="row">
                     <?php
                     // Get the current hour
@@ -70,8 +81,7 @@ if (!isset($_SESSION['userID']))
                 </div>
             </div>
 
-            <div class="row block">
-
+            <div id="quote" class="row block">
                 <div class="row align-items-center">
                     <div class="col-11">
                         <h2 class="heading w-100">Quote of the Day</h2>
@@ -120,7 +130,7 @@ if (!isset($_SESSION['userID']))
             </div>
 
 
-            <div class="row block">
+            <div id="ratings" class="row block">
                 <div class="row heading">
                     <h2>Add Today's Ratings</h2>
                 </div>
@@ -194,7 +204,7 @@ if (!isset($_SESSION['userID']))
                 </div>
             </div>
 
-            <div class="row block">
+            <div id="dashboard" class="row block">
                 <!-- <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div> -->
                 <h2 class="heading">Ratings of the last 5 days</h2>
                 <div id="chart_div" style="width: 100%; height: 70%; margin:0;"></div>
@@ -216,32 +226,34 @@ if (!isset($_SESSION['userID']))
 <!-- Custom Script -->
 <script src="../js/quote-fetch.js"></script>
 <script src="../js/quote-overlay.js"></script>
+<script src="../js/send-ratings.js"></script>
 <script>
-    $(document).ready(function() {
-        // Handle form submission for adding ratings
-        $('form[action="../api/addRatings.php"]').on('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+    window.onscroll = function() {
+        myFunction();
+    };
 
-            // Retrieve the values of the selected radio buttons
-            var happiness = $('input[name="happiness"]:checked').val();
-            var workload = $('input[name="workload"]:checked').val();
-            var anxiety = $('input[name="anxiety"]:checked').val();
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
 
-            // Post the data to addRatings.php
-            $.post('../api/addRatings.php', {
-                happiness: happiness,
-                workload: workload,
-                anxiety: anxiety
-            }, function(response) {
-                // Handle the response from the server
-                var data = JSON.parse(response);
-                if (data.status === "success") {
-                    // Display a success message or perform some action
-                    alert("Ratings added successfully!");
-                } else {
-                    // Display an error message
-                    alert("Error: " + data.message);
-                }
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const targetID = this.getAttribute('href');
+            const targetElement = document.querySelector(targetID);
+            const navbarHeight = document.getElementById('navbar').offsetHeight;
+
+            window.scrollTo({
+                top: targetElement.offsetTop - navbarHeight,
+                behavior: 'smooth'
             });
         });
     });

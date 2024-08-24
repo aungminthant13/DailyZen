@@ -87,8 +87,13 @@
                     first_name: first_name,
                     last_name: last_name,
                     password: password
-                }, function(data) {
-                    $('#result').html(data);
+                }, function(response) {
+                    var data = JSON.parse(response)
+                    if (data.status === "success"){
+                        window.location.href = "../app/home.php";
+                    } else {
+                        $('#result').html(data.message);
+                    }
                 });
             });
         });

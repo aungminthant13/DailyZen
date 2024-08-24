@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function test_input($data)
 {
@@ -9,10 +10,10 @@ function test_input($data)
 }
 
 // getting data
-$email = htmlspecialchars($_POST['email']);
-$first_name = htmlspecialchars($_POST['first_name']);
-$last_name = htmlspecialchars($_POST['last_name']);
-$password = htmlspecialchars($_POST['password']);
+$email = test_input($_POST['email']);
+$first_name = test_input($_POST['first_name']);
+$last_name = test_input($_POST['last_name']);
+$password = test_input($_POST['password']);
 
 // error checking
 $first_nameErr = $last_nameErr = $emailErr = $passwordErr = "";
@@ -20,35 +21,25 @@ $first_nameErr = $last_nameErr = $emailErr = $passwordErr = "";
 // Validate email
 if (empty($email)) {
     $emailErr = "Email is required";
-} else {
-    $email = test_input($email);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
-    }
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format";
 }
 
 // Validate first name
 if (empty($first_name)) {
     $first_nameErr = "First name is required";
-} else {
-    $first_name = test_input($first_name);
 }
 
 // Validate last name
 if (empty($last_name)) {
     $last_nameErr = "Last name is required";
-} else {
-    $last_name = test_input($last_name);
 }
 
 // Validate password
 if (empty($password)) {
     $passwordErr = "Password is required";
-} else {
-    $password = test_input($password);
-    if (strlen($password) < 8) {
-        $passwordErr = "Password must be at least 8 characters";
-    }
+} elseif (strlen($password) < 8) {
+    $passwordErr = "Password must be at least 8 characters";
 }
 
 // connecting to database
@@ -72,7 +63,8 @@ if (empty($emailErr)) {
     $check_stmt->close();
 }
 
-if (empty($first_nameErr) && empty($last_nameErr) && empty($emailErr) && empty($passwordErr) && empty($emailExistsErr)) {
+// Proceed if no errors
+if (empty($first_nameErr) && empty($last_nameErr) && empty($emailErr) && empty($passwordErr)) {
     // hash password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -82,24 +74,30 @@ if (empty($first_nameErr) && empty($last_nameErr) && empty($emailErr) && empty($
     $stmt->bind_param("ssss", $email, $first_name, $last_name, $password);
 
     if ($stmt->execute()) {
-        echo "Registration successful!";
+        // Set session variables
+        $_SESSION["userID"] = $conn->insert_id; // Get the ID of the newly inserted user
+        $_SESSION["fname"] = $first_name;
+        $_SESSION["lname"] = $last_name;
+        $_SESSION["email"] = $email;
+
+        echo json_encode(["status" => "success", "message" => "Registration successful!"]);
     } else {
-        echo "Error: " . $stmt->error;
+        echo json_encode(["status" => "error", "message" => "Failed to register."]);
     }
+
     $stmt->close();
 } else {
+    // Return the first error found
     if (!empty($emailErr)) {
-        echo $emailErr . "<br>";
+        $error_message = $emailErr;
     } elseif (!empty($first_nameErr)) {
-        echo $first_nameErr . "<br>";
+        $error_message = $first_nameErr;
     } elseif (!empty($last_nameErr)) {
-        echo $last_nameErr . "<br>";
+        $error_message = $last_nameErr;
     } elseif (!empty($passwordErr)) {
-        echo $passwordErr . "<br>";
-    } elseif (!empty($emailExistsErr)) {
-        echo $emailExistsErr . "<br>";
+        $error_message = $passwordErr;
     }
-    
+    echo json_encode(["status" => "error", "message" => $error_message]);
 }
 
 $conn->close();

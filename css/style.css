@@ -1,12 +1,17 @@
 /* CSS for home page */
+html {
+  scroll-behavior: smooth;
+}
+
 .home-main {
   background-color: #d5dade;
   font-family: "Nunito", sans-serif;
 }
 
 .custom-container {
-  max-width: 800px; /* Set the maximum width */
-  width: 50%; /* Adjust the width as needed */
+  max-width: 800px;
+  width: 50%;
+  padding-top: 50px;
 }
 
 .navbar {
@@ -14,8 +19,48 @@
   height: 50px;
   width: 100%;
   margin: 0;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.navbar-logo {
+  color: #ffffff;
+  margin-left: 3px;
+}
+
+.navbar-items {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logout {
+  color: #ffffff;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 4px; /* Space between navbar items */
+  font-size: 16px;
+  padding: 10px;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Makes sure the navbar stays on top of other elements */
+}
+
 
 .row.block {
   display: flex; /* Ensure the row behaves as a flex container */
@@ -166,11 +211,3 @@
 .rating-btns button:hover {
     background-color: #366fcc;
 }
-
-#curve_chart {
-  width: 100%; /* Adjust to 100% of the container width */
-  max-width: 1800px; /* Set a max width to limit its expansion */
-  height: 500px; /* Maintain the height */
-  margin: 0 auto; /* Center the chart horizontally */
-}
-

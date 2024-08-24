@@ -1,12 +1,12 @@
 <?php
-require_once '../api/dbinfo.php'; //Task 4
-$userID=1;
-//Task 5
-//SQL Statement
-// $query = "SELECT * FROM musician_booking;";
-// $result = $conn->query($query);
-// $all_rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+session_start();
+if (!isset($_SESSION['userID']))
+    header("Location: ../app/login.php");
+
+require_once '../api/dbinfo.php'; //Task 4
+
+$userID = $_SESSION['userID'];
 // Create connection
 $conn = new mysqli($host, $DBusername, $DBpassword, $database);
 

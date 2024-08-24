@@ -48,7 +48,6 @@
                 </div>
             </div>
         </div>
-        <a href="../app/home.php">Home</a> <a href="../app/login.php">Login</a> <a href="../app/register.php">Register</a>
     </main>
 
     <!-- jQuery library -->
