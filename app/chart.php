@@ -68,21 +68,21 @@ if (!isset($_SESSION['userID']))
                     data.forEach((item) => {
                         dataTable.addRow([
                             item.score_date,
-                            item.happiness_score,
-                            item.workload_score,
-                            item.anxiety_score,
+                            item.happiness,
+                            item.workload_management,
+                            item.anxiety_management,
                         ]);
                     });
 
                     const averages = {
                         happiness: calculateAverage(
-                            data.slice(-3).map((item) => item.happiness_score)
+                            data.slice(-3).map((item) => item.happiness)
                         ),
                         workload: calculateAverage(
-                            data.slice(-3).map((item) => item.workload_score)
+                            data.slice(-3).map((item) => item.workload_management)
                         ),
                         anxiety: calculateAverage(
-                            data.slice(-3).map((item) => item.anxiety_score)
+                            data.slice(-3).map((item) => item.anxiety_management)
                         ),
                     };
 

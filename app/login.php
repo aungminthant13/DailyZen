@@ -28,7 +28,7 @@
 
                     </div>
 
-                    <form method="POST" action="../data/loginvalidate.php" class="p-2">
+                    <form method="POST" action="../api/loginvalidate.php" class="p-2">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
@@ -57,11 +57,13 @@
     <!-- send the data to backend for processing -->
     <script>
         $(document).ready(function() {
-            $('form').on('submit', function(event) {
-                event.preventDefault(); // prevent the default form submission
+            $('form[action="../api/loginvalidate.php"]').on('submit', function(event) {
+                event.preventDefault();
+
                 var email = $('#email').val();
                 var password = $('#password').val();
-                $.post('../data/loginvalidate.php', {
+                
+                $.post('../api/loginvalidate.php', {
                     email: email,
                     password: password
                 }, function(response) {

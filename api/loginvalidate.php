@@ -8,6 +8,8 @@ function test_input($data) {
     return $data;
 }
 
+require_once '../api/dbinfo.php';
+
 // getting data
 $email = htmlspecialchars($_POST['email']);
 $password = htmlspecialchars($_POST['password']);
@@ -34,7 +36,6 @@ if (empty($password)) {
 
 if (empty($emailErr) && empty($passwordErr)) {
     // connecting to database
-    require_once '../api/dbinfo.php';
     $conn = new mysqli($host, $DBusername, $DBpassword, $database);
 
     if ($conn->connect_error) {

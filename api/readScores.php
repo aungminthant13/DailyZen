@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 //Prepared Statement
-if ($stmt = $conn->prepare("SELECT score_date, happiness_score, workload_score ,anxiety_score FROM user_daily_scores WHERE user_id=?")) {
+if ($stmt = $conn->prepare("SELECT score_date, happiness, workload_management, anxiety_management FROM user_daily_scores WHERE user_id=?")) {
     $stmt->bind_param('i', $userID);
     $stmt->execute();
     $result = $stmt->get_result();

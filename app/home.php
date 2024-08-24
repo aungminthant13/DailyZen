@@ -49,9 +49,9 @@ if (!isset($_SESSION['userID']))
                     // Determine the appropriate greeting
                     if ($currentHour >= 5 && $currentHour < 12) {
                         $greeting = "Good Morning";
-                    } elseif ($currentHour >= 12 && $currentHour < 18) {
+                    } elseif ($currentHour >= 12 && $currentHour < 17) {
                         $greeting = "Good Afternoon";
-                    } elseif ($currentHour >= 18 && $currentHour < 22) {
+                    } elseif ($currentHour >= 17 && $currentHour < 22) {
                         $greeting = "Good Evening";
                     } else {
                         $greeting = "Good Night";
@@ -213,8 +213,36 @@ if (!isset($_SESSION['userID']))
 <script src="../js/quote-fetch.js"></script>
 <script src="../js/quote-overlay.js"></script>
 <script>
+    $(document).ready(function() {
+        // Handle form submission for adding ratings
+        $('form[action="../api/addRatings.php"]').on('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
 
+            // Retrieve the values of the selected radio buttons
+            var happiness = $('input[name="happiness"]:checked').val();
+            var workload = $('input[name="workload"]:checked').val();
+            var anxiety = $('input[name="anxiety"]:checked').val();
+
+            // Post the data to addRatings.php
+            $.post('../api/addRatings.php', {
+                happiness: happiness,
+                workload: workload,
+                anxiety: anxiety
+            }, function(response) {
+                // Handle the response from the server
+                var data = JSON.parse(response);
+                if (data.status === "success") {
+                    // Display a success message or perform some action
+                    alert("Ratings added successfully!");
+                } else {
+                    // Display an error message
+                    alert("Error: " + data.message);
+                }
+            });
+        });
+    });
 </script>
+
 
 <footer>
     <!-- place footer here -->

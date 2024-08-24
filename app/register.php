@@ -29,7 +29,7 @@
 
                     </div>
 
-                    <form method="POST" action="../data/registervalidate.php" class="p-2">
+                    <form method="POST" action="../api/registervalidate.php" class="p-2">
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
@@ -64,7 +64,6 @@
                 </div>
             </div>
         </div>
-        <a href="../app/home.php">Home</a> <a href="../app/login.php">Login</a> <a href="../app/register.php">Register</a>
     </main>
 
     <footer>
@@ -76,14 +75,14 @@
 
     <script>
         $(document).ready(function() {
-            $('form').on('submit', function(event) {
+            $('form[action="../api/registervalidate.php"]').on('submit', function(event) {
                 event.preventDefault(); // prevent the default form submission
                 var email = $('#email').val();
                 var first_name = $('#first_name').val();
                 var last_name = $('#last_name').val();
                 var password = $('#password').val();
 
-                $.post('../data/registervalidate.php', {
+                $.post('../api/registervalidate.php', {
                     email: email,
                     first_name: first_name,
                     last_name: last_name,
