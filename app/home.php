@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['userID']))
-  header("Location: ../app/login.php");
+    header("Location: ../app/login.php");
 ?>
 
 <!doctype html>
@@ -192,8 +192,12 @@ if (!isset($_SESSION['userID']))
 
             <div class="row block">
                 <!-- <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div> -->
+                <h2 class="heading">Ratings of the last 5 days</h2>
                 <div id="chart_div" style="width: 100%; height: 70%; margin:0;"></div>
-                <div style="text-align: center;"><a href="../app/chart.html">View all time ratings here</a></div>
+                <div id="alert_div" class="alert alert-danger mx-auto" style="width: 60%; display: none;">
+                </div>
+
+                <div style="text-align: center;"><a href="../app/chart.php">View all time ratings here</a></div>
             </div>
         </div>
         </div>
