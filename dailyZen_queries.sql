@@ -5,8 +5,8 @@ DROP DATABASE DailyZen;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(100) NOT NULL UNIQUE,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
@@ -51,8 +51,8 @@ INSERT INTO user_daily_scores (user_id, score_date, happiness, workload_manageme
 (1, '2024-08-20', 5, 1, 4),
 (1, '2024-08-21', 4, 2, 3),
 (1, '2024-08-22', 3, 3, 2),
-(1, '2024-08-23', 4, 2, 3),
-(1, '2024-08-24', 5, 1, 4);
+(1, '2024-08-23', 1, 2, 1),
+(1, '2024-08-24', 1, 1, 2);
 
 DELETE FROM user_daily_scores
 WHERE user_id = 1

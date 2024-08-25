@@ -18,11 +18,17 @@ $(document).ready(function () {
             var data = JSON.parse(response);
             if (data.status === "success") {
                 location.reload();
-                alert("Ratings added successfully!");
+                alert("Ratings added/updated successfully!");
             } else {
                 // Display an error message
                 alert("Error: " + data.message);
             }
         });
+    });
+
+    // Reset the form if the user presses the cancel-rating button
+    $('#cancel-rating').on('click', function (event) {
+        event.preventDefault(); // Prevent the default button behavior
+        $('form[action="../api/addRatings.php"]')[0].reset(); // Reset the form to its initial state
     });
 });

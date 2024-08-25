@@ -161,7 +161,7 @@ if (!isset($_SESSION['userID']))
                         </div>
 
                         <div class="score-input">
-                            <span class="score-label heading">Workload</span>
+                            <span class="score-label heading">Workload Management</span>
                             <div class="score-options">
                                 <input type="radio" id="workload-1" name="workload" value="1">
                                 <label for="workload-1" data-value="1"></label>
@@ -181,7 +181,7 @@ if (!isset($_SESSION['userID']))
                         </div>
 
                         <div class="score-input">
-                            <span class="score-label heading">Anxiety</span>
+                            <span class="score-label heading">Anxiety Management</span>
                             <div class="score-options">
                                 <input type="radio" id="anxiety-1" name="anxiety" value="1">
                                 <label for="anxiety-1" data-value="1"></label>
@@ -201,7 +201,7 @@ if (!isset($_SESSION['userID']))
                         </div>
 
                         <div class="rating-btns">
-                            <button type="submit" id="cancel-rating" class="">Cancel</button>
+                            <button id="cancel-rating" class="">Cancel</button>
                             <button type="submit" id="add-rating" class="">Add Ratings</button>
                         </div>
                     </form>
