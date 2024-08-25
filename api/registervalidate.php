@@ -40,7 +40,16 @@ if (empty($password)) {
     $passwordErr = "Password is required";
 } elseif (strlen($password) < 8) {
     $passwordErr = "Password must be at least 8 characters";
+} elseif (!preg_match('/[A-Z]/', $password)) {
+    $passwordErr = "Password must contain at least one uppercase letter";
+} elseif (!preg_match('/[a-z]/', $password)) {
+    $passwordErr = "Password must contain at least one lowercase letter";
+} elseif (!preg_match('/[0-9]/', $password)) {
+    $passwordErr = "Password must contain at least one number";
+} elseif (!preg_match('/[\W_]/', $password)) {
+    $passwordErr = "Password must contain at least one special character";
 }
+
 
 // connecting to database
 require_once '../api/dbinfo.php';

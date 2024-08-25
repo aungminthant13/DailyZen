@@ -108,8 +108,8 @@ if (!isset($_SESSION['userID']))
                     <div class="col-8">
                         <div class="">
                             <blockquote>
-                                <p></p>
-                                <p></p>
+                                <p>quote text goes here</p>
+                                <p>author name goes here</p>
                             </blockquote>
                         </div>
                     </div>

@@ -69,6 +69,7 @@ html {
   background-color: #ffffff;
   padding: 20px;
   margin-top: 15px;
+  margin-bottom: 15px;
   border-radius: 5px;
   box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
 }
