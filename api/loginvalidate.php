@@ -65,7 +65,7 @@ if (empty($emailErr) && empty($passwordErr)) {
             echo json_encode(["status" => "success", "message" => "Successfully Logged in!"]);
             exit();
         } else {
-            echo json_encode(["status" => "error", "message" => "Invalid Login"]);
+            echo json_encode(["status" => "error", "message" => "Incorrect Password"]);
             exit();
         }
     } else {

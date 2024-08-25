@@ -38,13 +38,17 @@ if (!isset($_SESSION['userID']))
 <body class="home-main">
     <main style="width: 100%;">
         <div id="navbar" class="navbar">
-            <div class="navbar-logo"><h2>DailyZen</h2></div>
+            <div class="navbar-logo">
+                <h2>DailyZen</h2>
+            </div>
             <div class="navbar-items">
                 <a href="#greeting">Home</a>
                 <a href="#quote">Quote</a>
                 <a href="#ratings">Today's Ratings</a>
-                <a href="#dashboard">dashboard</a>
+                <a href="#dashboard">Dashboard</a>
             </div>
+
+
             <div class="logout"><a href="../app/logout.php">Logout</a></div>
 
         </div>
@@ -227,37 +231,8 @@ if (!isset($_SESSION['userID']))
 <script src="../js/quote-fetch.js"></script>
 <script src="../js/quote-overlay.js"></script>
 <script src="../js/send-ratings.js"></script>
-<script>
-    window.onscroll = function() {
-        myFunction();
-    };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky");
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const targetID = this.getAttribute('href');
-            const targetElement = document.querySelector(targetID);
-            const navbarHeight = document.getElementById('navbar').offsetHeight;
-
-            window.scrollTo({
-                top: targetElement.offsetTop - navbarHeight,
-                behavior: 'smooth'
-            });
-        });
-    });
-</script>
+<script src="../js/navbar.js"></script>
+<!-- <script src="../js/keyboard-shortcuts.js"></script> -->
 
 
 <footer>

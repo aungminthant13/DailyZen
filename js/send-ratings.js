@@ -17,9 +17,8 @@ $(document).ready(function () {
             // Handle the response from the server
             var data = JSON.parse(response);
             if (data.status === "success") {
-                // Display a success message or perform some action
-                alert("Ratings added successfully!");
                 location.reload();
+                alert("Ratings added successfully!");
             } else {
                 // Display an error message
                 alert("Error: " + data.message);
