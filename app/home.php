@@ -36,23 +36,22 @@ if (!isset($_SESSION['userID']))
 </head>
 
 <body class="home-main">
-    <main style="width: 100%;">
-        <div id="navbar" class="navbar">
-            <div class="navbar-logo">
-                <h2>DailyZen</h2>
-            </div>
-            <div class="navbar-items">
-                <a href="#greeting">Home</a>
-                <a href="#quote">Quote</a>
-                <a href="#ratings">Today's Ratings</a>
-                <a href="#dashboard">Dashboard</a>
-            </div>
-
-
-            <div class="logout btn-primary"><a href="../app/logout.php">Logout</a></div>
-
+    <div id="navbar" class="navbar">
+        <div class="navbar-logo">
+            <h2>DailyZen</h2>
         </div>
-    
+        <div class="navbar-items">
+            <a href="#greeting">Home</a>
+            <a href="#quote">Quote</a>
+            <a href="#ratings">Today's Ratings</a>
+            <a href="#dashboard">Dashboard</a>
+        </div>
+
+
+        <div class="logout btn-primary"><a href="../app/logout.php">Logout</a></div>
+
+    </div>
+    <main style="width: 100%;">
         <div class="container-fluid custom-container">
             <div id="greeting" class="row block">
                 <div class="row">
@@ -84,7 +83,7 @@ if (!isset($_SESSION['userID']))
                     </div>
                 </div>
             </div>
-<!-- 
+             
             <div id="quote" class="row block">
                 <div class="row align-items-center">
                     <div class="col-11">

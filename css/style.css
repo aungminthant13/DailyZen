@@ -8,12 +8,6 @@ html {
   font-family: "Nunito", sans-serif;
 }
 
-.custom-container {
-  max-width: 800px;
-  width: 50%;
-  padding-top: 50px;
-}
-
 /*navbar and navbar items*/
 .navbar {
   background-color: #206194;
@@ -88,6 +82,22 @@ html {
   z-index: 1000; /* Makes sure the navbar stays on top of other elements */
 }
 
+/*main body*/
+.custom-container {
+  max-width: 800px;
+  width: 50%;
+  padding-top: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .custom-container {
+    width: 70%;
+    padding-top: 100px;
+  }
+}
+
+
+
 /* content blocks */
 
 .row.block {
@@ -103,7 +113,7 @@ html {
 }
 
 @media only screen and (max-width: 600px) {
-  
+
 }
 
 .heading {
