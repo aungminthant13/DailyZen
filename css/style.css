@@ -14,45 +14,72 @@ html {
   padding-top: 50px;
 }
 
+/*navbar and navbar items*/
 .navbar {
   background-color: #206194;
-  height: 50px;
   width: 100%;
-  margin: 0;
-  /* margin-bottom: 15px; */
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
 .navbar-logo {
   color: #ffffff;
-  margin-left: 3px;
+  margin-left: 5px;
+
 }
 
 .navbar-items {
-  max-width: 800px;
-  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  flex-grow: 1;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.navbar-items-design {
+  border: 2px;
+  min-width: 10px;
 }
 
 .logout {
   color: #ffffff;
 }
 
+@media only screen and (max-width: 600px) {
+  .navbar {
+    width: 100%;
+    height: 100px;
+  }
+
+  .navbar-logo {
+    order: 1;
+  }
+  
+  .logout {
+    order: 2;
+  }
+
+  .navbar-items {
+    order: 3;
+  }
+
+}
+
 .navbar a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 4px; /* Space between navbar items */
-  font-size: 16px;
-  padding: 10px;
+  padding: 0 10px; /* Adjust padding */
+  margin: 0;       /* Reset margin */
+  color: #ffffff;  /* Set text color */
+  text-decoration: none; /* Remove underline from links */
 }
 
 .navbar a:hover {
   text-decoration: underline;
 }
+
 
 .navbar.sticky {
   position: fixed;
@@ -61,6 +88,7 @@ html {
   z-index: 1000; /* Makes sure the navbar stays on top of other elements */
 }
 
+/* content blocks */
 
 .row.block {
   display: flex; /* Ensure the row behaves as a flex container */
@@ -72,6 +100,10 @@ html {
   margin-bottom: 15px;
   border-radius: 5px;
   box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 600px) {
+  
 }
 
 .heading {

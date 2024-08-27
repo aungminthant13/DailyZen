@@ -49,10 +49,10 @@ if (!isset($_SESSION['userID']))
             </div>
 
 
-            <div class="logout"><a href="../app/logout.php">Logout</a></div>
+            <div class="logout btn-primary"><a href="../app/logout.php">Logout</a></div>
 
         </div>
-
+    
         <div class="container-fluid custom-container">
             <div id="greeting" class="row block">
                 <div class="row">
@@ -84,7 +84,7 @@ if (!isset($_SESSION['userID']))
                     </div>
                 </div>
             </div>
-
+<!-- 
             <div id="quote" class="row block">
                 <div class="row align-items-center">
                     <div class="col-11">
@@ -209,7 +209,6 @@ if (!isset($_SESSION['userID']))
             </div>
 
             <div id="dashboard" class="row block">
-                <!-- <div id="curve_chart" class="border" style="width: 100%; height: 500px; margin:0;"></div> -->
                 <h2 class="heading">Ratings of the last 5 days</h2>
                 <div id="chart_div" style="width: 100%; height: 70%; margin:0;"></div>
                 <div id="alert_div" class="alert alert-danger mx-auto" style="width: 60%; display: none;">
@@ -218,7 +217,7 @@ if (!isset($_SESSION['userID']))
                 <div style="text-align: center;"><a href="../app/chart.php">View all time ratings here</a></div>
             </div>
         </div>
-        </div>
+        </div> -->
 
 </body>
 
