@@ -9,7 +9,7 @@ $(document).ready(function(){
          displayQuote(dayNum); 
     })
     
-     $('#previous-quote-btn').click(function(){
+     $('.previous-quote-btn').click(function(){
          if(dayNum !=0)    
             dayNum-=1;
          else
@@ -18,11 +18,14 @@ $(document).ready(function(){
          displayQuote(dayNum);
  
      })
-     $('#next-quote-btn').click(function(){
+
+     $('.next-quote-btn').click(function(){
      
          dayNum+=1;
          displayQuote(dayNum);
      })
+    
+
      function getNumberofDays(){
          //Creates a new date object that store's todays date
          var today = new Date();

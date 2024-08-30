@@ -16,6 +16,8 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Form container */
@@ -25,6 +27,8 @@
     box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
     padding: 40px;
     text-align: center;
+    max-width: 100%;  /* Adjust to be responsive */
+    width: 100%;      /* Ensures formbox takes full width initially */
 }
 
 /* Form elements */
@@ -70,4 +74,47 @@
 
 #result {
     color: rgb(254, 53, 53);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .formbox {
+        padding: 30px;
+        width: 90%;  /* Ensures formbox fits nicely on smaller screens */
+    }
+
+    h1 {
+        font-size: 24px;  /* Adjust heading size */
+    }
+
+    .btn-primary {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .form-input {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .formbox {
+        padding: 20px;
+        width: 100%;  /* Use full width for very small screens */
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .btn-primary {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .form-input {
+        font-size: 12px;
+        padding: 6px;
+    }
 }

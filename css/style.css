@@ -97,7 +97,6 @@ html {
 }
 
 
-
 /* content blocks */
 
 .row.block {
@@ -110,10 +109,6 @@ html {
   margin-bottom: 15px;
   border-radius: 5px;
   box-shadow: 3px 10px 12px rgba(0, 0, 0, 0.1);
-}
-
-@media only screen and (max-width: 600px) {
-
 }
 
 .heading {
@@ -131,7 +126,7 @@ html {
   border: none;
   background: none;
   padding: 0;
-  font-size: 30px; /* icon size */
+  font-size: 30px;
   cursor: pointer;
   width: 40px;
   height: 40px;

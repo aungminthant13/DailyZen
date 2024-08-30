@@ -1,6 +1,6 @@
-blockquote {
+/* blockquote {
     width: 100%;
-    max-width: 100%;
+    min-width: 100%;
     margin:auto;
     padding-left: 10px;
     padding-right: 10px;
@@ -12,7 +12,31 @@ blockquote {
 
     background-color: #33e6e6;
     align-content: center;
-    
+} */
+
+blockquote {
+    width: 100%;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 25px;
+    border: 2px solid;
+    border-left: 13px solid;
+    border-color: #808080;
+    background-color: #33e6e6;
+    align-content: center;
+}
+
+/* Media query for smaller screens (mobile view) */
+@media only screen and (max-width: 600px) {
+    blockquote {
+        width: 100%; /* Take the full width */
+        min-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 15px; /* Optionally reduce border-radius for mobile */
+        box-sizing: border-box; /* Ensures padding is included in width */
+    }
 }
 
 blockquote > p:first-child:before {
