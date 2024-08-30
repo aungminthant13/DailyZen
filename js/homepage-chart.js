@@ -31,30 +31,32 @@ function drawChart() {
                 ]);
             });
 
-            const averages = {
-                happiness: calculateAverage(
-                    data.slice(-3).map((item) => item.happiness)
-                ),
-                workload: calculateAverage(
-                    data.slice(-3).map((item) => item.workload_management)
-                ),
-                anxiety: calculateAverage(
-                    data.slice(-3).map((item) => item.anxiety_management)
-                ),
-            };
+            if (data.length >= 3) {
+                const averages = {
+                    happiness: calculateAverage(
+                        data.slice(-3).map((item) => item.happiness)
+                    ),
+                    workload: calculateAverage(
+                        data.slice(-3).map((item) => item.workload_management)
+                    ),
+                    anxiety: calculateAverage(
+                        data.slice(-3).map((item) => item.anxiety_management)
+                    ),
+                };
 
-            console.log("Averages:", averages); // Log calculated averages
+                console.log("Averages:", averages); // Log calculated averages
 
-            // Display alert if any average is below 1.5
-            if (
-                averages.happiness < 1.5 ||
-                averages.workload < 1.5 ||
-                averages.anxiety < 1.5
-            ) {
-                const alertDiv = document.getElementById("alert_div");
-                alertDiv.textContent =
-                    "Warning: The average of the last 3 readings in one or more categories is below 1.5. Please seek professional assistance.";
-                alertDiv.style.display = "block";
+                // Display alert if any average is below 1.5
+                if (
+                    averages.happiness < 1.5 ||
+                    averages.workload < 1.5 ||
+                    averages.anxiety < 1.5
+                ) {
+                    const alertDiv = document.getElementById("alert_div");
+                    alertDiv.textContent =
+                        "Warning: The average of the last 3 readings in one or more categories is below 1.5. Please seek professional assistance.";
+                    alertDiv.style.display = "block"; // Show the alert div
+                }
             }
 
             const options = {

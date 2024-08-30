@@ -43,27 +43,24 @@ if (!isset($_SESSION['userID']))
             <h2>DailyZen</h2>
         </div>
         <div class="navbar-items">
-            <a href="#greeting">Home</a>
-            <a href="#quote">Quote</a>
-            <a href="#ratings">Today's Ratings</a>
-            <a href="#dashboard">Dashboard</a>
+            <a href="#greeting" id="nav-greeting">Home</a>
+            <a href="#quote" id="nav-quote">Quote</a>
+            <a href="#ratings" id="nav-ratings">Today's Ratings</a>
+            <a href="#dashboard" id="nav-dashboard">Dashboard</a>
         </div>
 
-
         <div class="logout btn-primary"><a href="../app/logout.php">Logout</a></div>
-
     </div>
+
     <main style="width: 100%;">
         <div class="container-fluid custom-container">
             <div id="greeting" class="row block">
                 <div class="row">
                     <?php
 
-                    $customDate = new DateTime('2024-08-29');
-
                     // Get the current hour
                     date_default_timezone_set('Asia/Bangkok');
-                    $currentHour = $customDate->format('H');
+                    $currentHour = date('H');
 
                     // Determine the appropriate greeting
                     if ($currentHour >= 5 && $currentHour < 12) {
@@ -103,14 +100,14 @@ if (!isset($_SESSION['userID']))
                 </div>
 
                 <div class="row">
-                    <!-- Previous Button - Hidden on small screens -->
+                    <!-- Previous Button (large screen)-->
                     <div class="col-2 d-none d-md-flex align-items-center justify-content-center">
                         <button class="btn-icon previous-quote-btn" id="previous-quote-btn">
                             <i class="bi bi-caret-left-fill"></i>
                         </button>
                     </div>
 
-                    <!-- Quote block - Takes full width on small screens, 8 columns on larger screens -->
+                    <!-- Quote block -->
                     <div class="col-12 col-md-8">
                         <blockquote>
                             <p>quote text goes here</p>
@@ -118,7 +115,7 @@ if (!isset($_SESSION['userID']))
                         </blockquote>
                     </div>
 
-                    <!-- Next Button - Hidden on small screens -->
+                    <!-- Next Button (large screen) -->
                     <div class="col-2 d-none d-md-flex align-items-center justify-content-center">
                         <button class="btn-icon next-quote-btn" id="next-quote-btn">
                             <i class="bi bi-caret-right-fill"></i>
@@ -126,21 +123,21 @@ if (!isset($_SESSION['userID']))
                     </div>
                 </div>
 
-                <!-- Buttons for small screens - Shown only on small screens -->
+                <!-- buttons for small screen)-->
                 <div class="row d-flex d-md-none">
-                    <!-- Both columns should take half of the screen width each (col-6) -->
+                    <!-- Previous Button (small screen) -->
                     <div class="col-6 d-flex align-items-center justify-content-end">
                         <button class="btn-icon previous-quote-btn" id="previous-quote-btn">
                             <i class="bi bi-caret-left-fill"></i>
                         </button>
                     </div>
+                    <!-- Next Button (small screen) -->
                     <div class="col-6 d-flex align-items-center justify-content-start">
                         <button class="btn-icon next-quote-btn" id="next-quote-btn">
                             <i class="bi bi-caret-right-fill"></i>
                         </button>
                     </div>
                 </div>
-
             </div>
 
 
@@ -253,7 +250,7 @@ if (!isset($_SESSION['userID']))
 <script src="../js/quote-overlay.js"></script>
 <script src="../js/send-ratings.js"></script>
 <script src="../js/navbar.js"></script>
-<!-- <script src="../js/keyboard-shortcuts.js"></script> -->
+<script src="../js/keyboard-shortcuts.js"></script>
 
 
 <footer>

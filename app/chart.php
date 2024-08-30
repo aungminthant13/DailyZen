@@ -8,10 +8,12 @@ if (!isset($_SESSION['userID']))
 <html>
 
 <head>
-    <title>Google Charts with JSON Data</title>
-    <script
-        type="text/javascript"
-        src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>DailyZen: Chart</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
         .alert {
             display: none;
@@ -28,9 +30,6 @@ if (!isset($_SESSION['userID']))
         }
 
         .home-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             padding: 10px 20px;
             background-color: #007bff;
             color: white;
@@ -38,6 +37,18 @@ if (!isset($_SESSION['userID']))
             border-radius: 4px;
             cursor: pointer;
             text-decoration: none;
+            margin-right: 20px; /* Space between button and heading */
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .header-container h1 {
+            margin: 0;
         }
     </style>
     <script type="text/javascript">
@@ -74,30 +85,33 @@ if (!isset($_SESSION['userID']))
                         ]);
                     });
 
-                    const averages = {
-                        happiness: calculateAverage(
-                            data.slice(-3).map((item) => item.happiness)
-                        ),
-                        workload: calculateAverage(
-                            data.slice(-3).map((item) => item.workload_management)
-                        ),
-                        anxiety: calculateAverage(
-                            data.slice(-3).map((item) => item.anxiety_management)
-                        ),
-                    };
+                    // Check if there are at least 3 scores to calculate averages
+                    if (data.length >= 3) {
+                        const averages = {
+                            happiness: calculateAverage(
+                                data.slice(-3).map((item) => item.happiness)
+                            ),
+                            workload: calculateAverage(
+                                data.slice(-3).map((item) => item.workload_management)
+                            ),
+                            anxiety: calculateAverage(
+                                data.slice(-3).map((item) => item.anxiety_management)
+                            ),
+                        };
 
-                    console.log("Averages:", averages); // Log calculated averages
+                        console.log("Averages:", averages); // Log calculated averages
 
-                    // Display alert if any average is below 1.5
-                    if (
-                        averages.happiness < 1.5 ||
-                        averages.workload < 1.5 ||
-                        averages.anxiety < 1.5
-                    ) {
-                        const alertDiv = document.getElementById("alert_div");
-                        alertDiv.textContent =
-                            "Warning: The average of the last 3 readings in one or more categories is below 1.5. Please seek professional assistance.";
-                        alertDiv.style.display = "block"; // Show the alert div
+                        // Display alert if any average is below 1.5
+                        if (
+                            averages.happiness < 1.5 ||
+                            averages.workload < 1.5 ||
+                            averages.anxiety < 1.5
+                        ) {
+                            const alertDiv = document.getElementById("alert_div");
+                            alertDiv.textContent =
+                                "Warning: The average of the last 3 readings in one or more categories is below 1.5. Please seek professional assistance.";
+                            alertDiv.style.display = "block"; // Show the alert div
+                        }
                     }
 
                     const options = {
@@ -128,10 +142,14 @@ if (!isset($_SESSION['userID']))
 </head>
 
 <body>
-    <!-- Home Button -->
-    <a href="../app/home.php" class="home-button">Back to Homepage</a>
+    <!-- Header Container -->
+    <div class="header-container">
+        <!-- Home Button -->
+        <a href="../app/home.php" class="home-button">Back to Homepage</a>
+        <!-- Page Heading -->
+        <h1>Rating Entries Overtime</h1>
+    </div>
 
-    <h1 style="text-align: center">Rating Entries Overtime</h1>
     <div id="alert_div" class="alert alert-danger w-60 mx-auto" role="alert"></div>
     <div id="chart_div" style="width: 100%; height: 500px; margin: 0"></div>
 </body>
